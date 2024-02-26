@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .btn {
+            background-color: rebeccapurple;
+            border-radius: 5px;
+            border: none;
+            margin: 1rem;
+            color: white;
+            font-family: inherit;
+            font-size: 1.2rem;
+            padding: 1.5rem 3rem;
+        }
+    </style>
+    <title>Sound Board</title>
+</head>
+
+<body class="bg-[rgb(161,100,223)] flex items-center justify-center min-h-screen m-0">
+    <audio id="applause" src="sounds/applause.mp3"></audio>
+    <audio id="boo" src="sounds/boo.mp3"></audio>
+    <audio id="gasp" src="sounds/gasp.mp3"></audio>
+    <audio id="tada" src="sounds/tada.mp3"></audio>
+    <audio id="victory" src="sounds/victory.mp3"></audio>
+    <audio id="wrong" src="sounds/wrong.mp3"></audio>
+    <script>
+        const sounds = ["applause", "boo", "gasp", "tada", "victory", "wrong"];
+
+        sounds.forEach((sound) => {
+            const btn = document.createElement("button");
+            btn.classList.add("btn");
+
+            btn.innerText = sound;
+
+            btn.addEventListener("click", () => {
+                stopSongs();
+
+                document.getElementById(sound).play();
+            });
+
+            document.body.appendChild(btn);
+        });
+
+        function stopSongs() {
+            sounds.forEach((sound) => {
+                const song = document.getElementById(sound);
+
+                song.pause();
+                song.currentTime = 0;
+            });
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Carousel</title>
+</head>
+
+<body class="flex items-center justify-center min-h-screen">
+    <div class="overflow-hidden h-[500px] w-[500px]">
+        <div class="flex transition-transform duration-[1.5s] ease-[ease-in-out] translate-x-0" id="imgs">
+            <img class="object-cover h-[500px] w-[500px]" src="../Images/html.png" />
+            <img class="object-cover h-[500px] w-[500px]" src="../Images/css.png" />
+            <img class="object-cover h-[500px] w-[500px]" src="https://www.freepnglogos.com/uploads/javascript-png/javascript-vector-logo-yellow-png-transparent-javascript-vector-12.png" />
+            <img class="object-cover h-[500px] w-[500px]" src="../Images/tc.png" />
+        </div>
+    </div>
+    <script>
+        const imgs = document.getElementById("imgs");
+        const img = document.querySelectorAll("#imgs img");
+        let idx = 0;
+        function run() {
+            idx++;
+            if (idx > img.length - 1) {
+                idx = 0;
+            }
+            imgs.style.transform = `translateX(${-idx * 500}px)`;
+        }
+        setInterval(run, 2000);
+    </script>
+</body>
+
+</html>

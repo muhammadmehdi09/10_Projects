@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Auto Write Text</title>
+    <script>
+        const text = "My viewers on Twitch are the best!! <3";
+
+        let index = 0;
+
+        function writeText() {
+            document.body.innerText = text.slice(0, index);
+
+            index++;
+
+            if (index > text.length) {
+                index = 0;
+            }
+        }
+
+        setInterval(writeText, 100);
+
+    </script>
+</head>
+
+<body class=" bg-[rebeccapurple] text-[white] text-[2rem] flex items-center justify-center min-h-screen m-0"></body>
+
+</html>

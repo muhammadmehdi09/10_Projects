@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .popup-container.active {
+            display: flex;
+        }
+    </style>
+    <title>Popup</title>
+</head>
+
+<body class="flex items-center justify-center min-h-screen m-0">
+    <button id="open" class="bg-[rebeccapurple] text-[white] rounded p-4 border-[none]">Open</button>
+    <div class="popup-container active fixed bg-[rgba(0,0,0,0.5)] hidden items-center justify-center inset-0"
+        id="container">
+        <div class="bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.3)] relative w-[500px] p-8 rounded-[5px]">
+            <button class="bg-white text-[rebeccapurple] text-[2rem] absolute right-2.5 top-2.5"
+                id="close">&times;</button>
+            <h1>YouTube</h1>
+            <p>Also, my YouTube viewers are the best too. Right?</p>
+        </div>
+    </div>
+    <script>
+        const open = document.getElementById("open");
+        const close = document.getElementById("close");
+        const container = document.getElementById("container");
+
+        open.addEventListener("click", () => {
+            container.classList.add("active");
+        });
+
+        close.addEventListener("click", () => {
+            container.classList.remove("active");
+        });
+
+    </script>
+</body>
+
+</html>

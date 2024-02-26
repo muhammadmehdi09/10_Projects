@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Hamburger Button</title>
+    <style>
+
+        button.active {
+            transform: translateX(-100px);
+        }
+        nav.active {
+            transform: translateX(0);
+        }
+
+        nav ul {
+            padding: 0;
+            list-style-type: none;
+            margin: 0;
+        }
+
+        nav ul li {
+            padding: 1rem 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen m-0">
+    <button id="btn" class="bg-[rebeccapurple] text-[white] fixed transition-transform duration-[0.3s] ease-[ease-in-out] p-4 border-[none] right-5 top-5">☰</button>
+
+    <nav id="nav" class=" bg-[rebeccapurple] fixed h-screen translate-x-full transition-transform duration-[0.3s] ease-[ease-in-out] p-8 right-0 top-0">
+        <ul>
+            <li><a href="/rain">Rain</a></li>
+            <li><a href="/popup">Popup</a></li>
+            <li><a href="/zoom">Zoom</a></li>
+            <li><a href="/sounds">Sounds</a></li>
+            <li><a href="/toast-notification">Toast-notif</a></li>
+            <li><a href="/dark-mode">Dark mode</a></li>
+            <li><a href="/bg-change">Bg Change</a></li>
+            <li><a href="/auto-write">Auto Write</a></li>
+            <li><a href="/carousel">Carousel</a></li>
+        </ul>
+    </nav>
+    <script>
+        const btn = document.getElementById("btn");
+        const nav = document.getElementById("nav");
+
+        btn.addEventListener("click", () => {
+            nav.classList.toggle("active");
+            btn.classList.toggle("active");
+        });
+
+    </script>
+</body>
+
+</html>

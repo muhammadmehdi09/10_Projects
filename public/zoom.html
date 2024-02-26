@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Zoom Effect</title>
+</head>
+
+<body class="bg-[rebeccapurple] flex items-center justify-center min-h-screen m-0">
+    <div id="container" class="shadow-[3px_3px_4px_rgba(0,0,0,0.3)] h-[500px] w-[500px] overflow-hidden">
+        <img class="origin-[center_center] object-cover h-full w-full"
+            src="https://images.unsplash.com/photo-1582769923195-c6e60dc1d8dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" />
+    </div>
+    <script>
+        const container = document.getElementById("container");
+        const img = document.querySelector("img");
+
+        container.addEventListener("mousemove", (e) => {
+            const x = e.clientX - e.target.offsetLeft;
+            const y = e.clientY - e.target.offsetTop;
+
+            console.log(x, y);
+
+            img.style.transformOrigin = `${x}px ${y}px`;
+            img.style.transform = "scale(2)";
+        });
+
+        container.addEventListener("mouseleave", () => {
+            img.style.transformOrigin = "center center";
+            img.style.transform = "scale(1)";
+        });
+
+    </script>
+</body>
+
+</html>

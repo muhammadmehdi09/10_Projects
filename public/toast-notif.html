@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Toast Notifaction</title>
+</head>
+
+<body class="flex items-center justify-center min-h-screen m-0">
+    <div id="container" class="fixed right-2.5 bottom-2.5"></div>
+    <button id="btn" class="bg-[rebeccapurple] text-[white] p-4 rounded-[5px] border-[none]">Toast Notification</button>
+    <script>
+        const btn = document.getElementById("btn");
+        const container = document.getElementById("container");
+
+        btn.addEventListener("click", () => {
+            createNotification();
+        });
+
+        function createNotification() {
+            const notif = `<div class="bg-[rebeccapurple] text-white m-4 p-8 rounded-[5px]">Toast Notification</div>`
+            container.innerHTML = container.innerHTML + notif;
+            setTimeout(() => { container.innerHTML = "" }, 3000);
+        }
+
+    </script>
+</body>
+
+</html>
